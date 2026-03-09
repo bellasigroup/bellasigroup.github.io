@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella's Group - Custom Apparel & Creative Designs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #ffffff;
+            --accent: #d4af37;
+            --light-accent: #f5ede1;
+            --text-light: #666666;
+            --spacing: 1rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--secondary);
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem var(--spacing);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .lang-toggle {
+            background: none;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f5ede1 100%);
+            padding: 6rem var(--spacing) 4rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            animation: slideDown 0.8s ease 0.2s both;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            animation: slideDown 0.8s ease 0.3s both;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            animation: slideDown 0.8s ease 0.4s both;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideDown 0.8s ease 0.5s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION STYLES */
+        section {
+            padding: 4rem var(--spacing);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* WHAT WE CREATE */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--light-accent);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* PRODUCTS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .product {
+            background: var(--light-accent);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5ede1, #e8dcc9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product h4 {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .product p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+            padding: 4rem var(--spacing);
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .cta h2 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .cta h2::after {
+            background: var(--accent);
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .cta .btn {
+            margin: 0 0.5rem;
+        }
+
+        /* PROCESS */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .step {
+            background: var(--light-accent);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--accent);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* ABOUT */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .mission-vision {
+            background: var(--light-accent);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .mission-vision h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+        }
+
+        /* CONTACT */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .contact-info {
+            background: var(--light-accent);
+            padding: 2.5rem;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+            padding: 3rem var(--spacing);
+            border-top: 1px solid #333;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-tagline {
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* UTILITY */
+        .hidden {
+            display: none;
+        }
+
+        .container-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem var(--spacing);
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .products-grid,
+            .cards-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Bella's <span>Group</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="scrollToSection('inicio')">Inicio</a></li>
+                <li><a onclick="scrollToSection('tienda')">Tienda</a></li>
+                <li><a onclick="scrollToSection('custom')">Custom</a></li>
+                <li><a onclick="scrollToSection('about')">Nosotros</a></li>
+                <li><a onclick="scrollToSection('contacto')">Contacto</a></li>
+            </ul>
+            <button class="lang-toggle" onclick="toggleLanguage()">EN / ES</button>
+        </nav>
+    </header>
+
+    <!-- HOME / INICIO -->
+    <section id="inicio">
+        <!-- HERO -->
+        <div class="hero">
+            <h1 data-en="Design What You Imagine" data-es="Diseña lo que Imaginas">Diseña lo que Imaginas</h1>
+            <p class="hero-subtitle" data-en="Custom Apparel & Creative Designs" data-es="Ropa Personalizada & Diseños Creativos">Ropa Personalizada & Diseños Creativos</p>
+            <p class="hero-text" data-en="Design what you imagine. Wear what you love. Discover unique apparel, gifts, and personalized creations made with creativity and passion." data-es="Diseña lo que imaginas. Usa lo que amas. Descubre ropa personalizada, regalos únicos y creaciones hechas con creatividad y pasión.">Diseña lo que imaginas. Usa lo que amas. Descubre ropa personalizada, regalos únicos y creaciones hechas con creatividad y pasión.</p>
+            <div class="btn-group">
+                <button class="btn btn-primary" data-en="Shop Now" data-es="Compra Ahora" onclick="scrollToSection('tienda')">Compra Ahora</button>
+                <button class="btn btn-secondary" data-en="Custom Order" data-es="Pedido Personalizado" onclick="scrollToSection('custom')">Pedido Personalizado</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE CREATE -->
+    <section>
+        <h2 data-en="What We Create" data-es="Qué Creamos">Qué Creamos</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3 data-en="Custom Apparel" data-es="Ropa Personalizada">Ropa Personalizada</h3>
+                <p data-en="Personalized hoodies, t-shirts, and fashion pieces made to match your style." data-es="Hoodies, camisetas y ropa personalizada creada para tu estilo.">Hoodies, camisetas y ropa personalizada creada para tu estilo.</p>
+            </div>
+            <div class="card">
+                <h3 data-en="Gift Ideas" data-es="Ideas de Regalos">Ideas de Regalos</h3>
+                <p data-en="Unique gifts for birthdays, couples, family, and special moments." data-es="Regalos únicos para cumpleaños, parejas, familia y ocasiones especiales.">Regalos únicos para cumpleaños, parejas, familia y ocasiones especiales.</p>
+            </div>
+            <div class="card">
+                <h3 data-en="Creative Designs" data-es="Diseños Creativos">Diseños Creativos</h3>
+                <p data-en="Designs inspired by anime, pop culture, and creative concepts." data-es="Diseños inspirados en anime, cultura pop y conceptos creativos.">Diseños inspirados en anime, cultura pop y conceptos creativos.</p>
+            </div>
+            <div class="card">
+                <h3 data-en="Personalized Orders" data-es="Pedidos Personalizados">Pedidos Personalizados</h3>
+                <p data-en="Tell us your idea and we turn it into something real." data-es="Cuéntanos tu idea y la convertimos en algo real.">Cuéntanos tu idea y la convertimos en algo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section>
+        <h2 data-en="Best Sellers" data-es="Más Vendidos">Más Vendidos</h2>
+        <div class="products-grid">
+            <div class="product">
+                <div class="product-image">🐉</div>
+                <div class="product-content">
+                    <h4 data-en="Dragon Hoodie" data-es="Hoodie Dragon">Hoodie Dragon</h4>
+                    <p data-en="Bold dragon design with premium print quality." data-es="Diseño bold de dragón con calidad de impresión premium.">Diseño bold de dragón con calidad de impresión premium.</p>
+                    <div class="price">$45</div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">👘</div>
+                <div class="product-content">
+                    <h4 data-en="Custom Anime T-Shirt" data-es="Camiseta Anime Personalizada">Camiseta Anime Personalizada</h4>
+                    <p data-en="Personalized anime-inspired design." data-es="Diseño personalizado inspirado en anime.">Diseño personalizado inspirado en anime.</p>
+                    <div class="price">$25</div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">👜</div>
+                <div class="product-content">
+                    <h4 data-en="Bella's Tote Bag" data-es="Bolsa Tote Bella's">Bolsa Tote Bella's</h4>
+                    <p data-en="Stylish custom bag for everyday use." data-es="Bolsa personalizada elegante para uso diario.">Bolsa personalizada elegante para uso diario.</p>
+                    <div class="price">$18</div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">🎁</div>
+                <div class="product-content">
+                    <h4 data-en="Personalized Gift Set" data-es="Set de Regalos Personalizados">Set de Regalos Personalizados</h4>
+                    <p data-en="Custom gift bundles for special occasions." data-es="Paquetes de regalo personalizados para ocasiones especiales.">Paquetes de regalo personalizados para ocasiones especiales.</p>
+                    <div class="price">$35</div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <button class="btn btn-primary" data-en="View Full Catalog" data-es="Ver Catálogo Completo" onclick="scrollToSection('tienda')">Ver Catálogo Completo</button>
+        </div>
+    </section>
+
+    <!-- WHY BELLA'S GROUP -->
+    <section>
+        <h2 data-en="Why Bella's Group" data-es="Por Qué Bella's Group">Por Qué Bella's Group</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3 data-en="Unique Designs" data-es="Diseños Únicos">Diseños Únicos</h3>
+                <p data-en="Every piece is created with originality and attention to detail." data-es="Cada pieza se crea con originalidad y atención al detalle.">Cada pieza se crea con originalidad y atención al detalle.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+                <h3 data-en="Personalized Service" data-es="Servicio Personalizado">Servicio Personalizado</h3>
+                <p data-en="We work closely with your ideas." data-es="Trabajamos contigo para crear algo único.">Trabajamos contigo para crear algo único.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⭐</div>
+                <h3 data-en="Quality & Style" data-es="Calidad y Estilo">Calidad y Estilo</h3>
+                <p data-en="High-quality prints and stylish designs." data-es="Impresiones de alta calidad y diseños con estilo.">Impresiones de alta calidad y diseños con estilo.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">❤️</div>
+                <h3 data-en="Made with Passion" data-es="Hecho con Pasión">Hecho con Pasión</h3>
+                <p data-en="Every product is made with creativity and care." data-es="Cada producto se crea con pasión y creatividad.">Cada producto se crea con pasión y creatividad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section>
+        <div class="cta">
+            <h2 data-en="Ready to create something unique?" data-es="¿Listo para crear algo único?">¿Listo para crear algo único?</h2>
+            <p data-en="Explore our catalog or request a custom design today." data-es="Explora nuestro catálogo o solicita tu diseño personalizado hoy.">Explora nuestro catálogo o solicita tu diseño personalizado hoy.</p>
+            <div class="btn-group">
+                <button class="btn btn-secondary" data-en="Shop Now" data-es="Compra Ahora" onclick="scrollToSection('tienda')">Compra Ahora</button>
+                <button class="btn btn-secondary" data-en="Custom Design" data-es="Diseño Personalizado" onclick="scrollToSection('custom')">Diseño Personalizado</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP / CATÁLOGO -->
+    <section id="tienda">
+        <h2 data-en="Shop Bella's Group" data-es="Tienda Bella's Group">Tienda Bella's Group</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem;" data-en="Explore our collection of custom apparel and accessories." data-es="Explora nuestra colección de ropa y accesorios personalizados.">Explora nuestra colección de ropa y accesorios personalizados.</p>
+
+        <h3 data-en="Hoodies" data-es="Hoodies" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--accent);">Hoodies</h3>
+        <div class="products-grid">
+            <div class="product">
+                <div class="product-image">🐉</div>
+                <div class="product-content">
+                    <h4 data-en="Dragon Shenron Hoodie" data-es="Hoodie Dragon Shenron">Hoodie Dragon Shenron</h4>
+                    <p data-en="Premium back design with sleeve detail" data-es="Diseño premium en la espalda con detalle en las mangas">Diseño premium en la espalda con detalle en las mangas</p>
+                    <div class="price">$45</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">🎵</div>
+                <div class="product-content">
+                    <h4 data-en="BTS Inspired Hoodie" data-es="Hoodie Inspirado en BTS">Hoodie Inspirado en BTS</h4>
+                    <p data-en="Minimal fan inspired design" data-es="Diseño minimalista inspirado en fans">Diseño minimalista inspirado en fans</p>
+                    <div class="price">$40</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">📝</div>
+                <div class="product-content">
+                    <h4 data-en="Personalized Name Hoodie" data-es="Hoodie Nombre Personalizado">Hoodie Nombre Personalizado</h4>
+                    <p data-en="Add your name or phrase" data-es="Añade tu nombre o frase">Añade tu nombre o frase</p>
+                    <div class="price">$42</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+        </div>
+
+        <h3 data-en="T-Shirts" data-es="Camisetas" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--accent);">Camisetas</h3>
+        <div class="products-grid">
+            <div class="product">
+                <div class="product-image">👘</div>
+                <div class="product-content">
+                    <h4 data-en="Anime Graphic Tee" data-es="Camiseta Gráfica Anime">Camiseta Gráfica Anime</h4>
+                    <p data-en="Bold anime design" data-es="Diseño anime bold">Diseño anime bold</p>
+                    <div class="price">$25</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">🎨</div>
+                <div class="product-content">
+                    <h4 data-en="Custom Printed Tee" data-es="Camiseta Impresión Personalizada">Camiseta Impresión Personalizada</h4>
+                    <p data-en="Create your own design" data-es="Crea tu propio diseño">Crea tu propio diseño</p>
+                    <div class="price">$28</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">◇</div>
+                <div class="product-content">
+                    <h4 data-en="Minimal Art Tee" data-es="Camiseta Arte Minimal">Camiseta Arte Minimal</h4>
+                    <p data-en="Modern minimal design" data-es="Diseño minimalista moderno">Diseño minimalista moderno</p>
+                    <div class="price">$22</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+        </div>
+
+        <h3 data-en="Bags & Accessories" data-es="Bolsas y Accesorios" style="font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--accent);">Bolsas y Accesorios</h3>
+        <div class="products-grid">
+            <div class="product">
+                <div class="product-image">👜</div>
+                <div class="product-content">
+                    <h4 data-en="Custom Tote Bag" data-es="Bolsa Tote Personalizada">Bolsa Tote Personalizada</h4>
+                    <p data-en="Elegant custom tote bag" data-es="Bolsa tote elegante personalizada">Bolsa tote elegante personalizada</p>
+                    <div class="price">$18</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">🎌</div>
+                <div class="product-content">
+                    <h4 data-en="Fan Collection Bag" data-es="Bolsa Colección Fan">Bolsa Colección Fan</h4>
+                    <p data-en="Inspired by anime and pop culture" data-es="Inspirado en anime y cultura pop">Inspirado en anime y cultura pop</p>
+                    <div class="price">$20</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image">✨</div>
+                <div class="product-content">
+                    <h4 data-en="Sticker Packs" data-es="Paquetes de Stickers">Paquetes de Stickers</h4>
+                    <p data-en="Small creative accessories" data-es="Pequeños accesorios creativos">Pequeños accesorios creativos</p>
+                    <div class="price" data-en="From $8" data-es="Desde $8">Desde $8</div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-en="Order Now" data-es="Ordenar Ahora">Ordenar Ahora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOM ORDERS -->
+    <section id="custom">
+        <h2 data-en="Custom Orders" data-es="Pedidos Personalizados">Pedidos Personalizados</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;" data-en="Have an idea? We can bring it to life. From apparel to creative designs, Bella's Group creates personalized products made just for you." data-es="¿Tienes una idea? Nosotros la hacemos realidad. Desde ropa hasta diseños creativos, Bella's Group crea productos personalizados solo para ti.">¿Tienes una idea? Nosotros la hacemos realidad. Desde ropa hasta diseños creativos, Bella's Group crea productos personalizados solo para ti.</p>
+
+        <h3 data-en="What You Can Customize" data-es="Qué Puedes Personalizar" style="font-size: 1.3rem; margin-bottom: 1.5rem;">Qué Puedes Personalizar</h3>
+        <div class="cards-grid" style="margin-bottom: 3rem;">
+            <div class="card">
+                <p>👕 Hoodies</p>
+            </div>
+            <div class="card">
+                <p>👔 T-shirts</p>
+            </div>
+            <div class="card">
+                <p>👜 Tote bags</p>
+            </div>
+            <div class="card">
+                <p>🎁 Gifts</p>
+            </div>
+            <div class="card">
+                <p>👘 Fan Designs</p>
+            </div>
+            <div class="card">
+                <p>📝 Nombres y Frases</p>
+            </div>
+            <div class="card">
+                <p>🎪 Productos para Eventos</p>
+            </div>
+            <div class="card">
+                <p>💡 Y Mucho Más</p>
+            </div>
+        </div>
+
+        <h3 data-en="How It Works" data-es="Cómo Funciona" style="font-size: 1.3rem; margin: 3rem 0 1.5rem;">Cómo Funciona</h3>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 data-en="Send Your Idea" data-es="Envía Tu Idea">Envía Tu Idea</h3>
+                <p data-en="Tell us the product and the design you want." data-es="Cuéntanos el producto y el diseño que quieres.">Cuéntanos el producto y el diseño que quieres.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 data-en="Design Review" data-es="Revisión del Diseño">Revisión del Diseño</h3>
+                <p data-en="We confirm details and pricing." data-es="Confirmamos detalles y precio.">Confirmamos detalles y precio.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 data-en="Creation" data-es="Creación">Creación</h3>
+                <p data-en="We create your personalized design." data-es="Creamos tu diseño personalizado.">Creamos tu diseño personalizado.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 data-en="Order" data-es="Pedido">Pedido</h3>
+                <p data-en="Once approved, we produce your product." data-es="Una vez aprobado, producimos tu producto.">Una vez aprobado, producimos tu producto.</p>
+            </div>
+        </div>
+
+        <div class="btn-group" style="margin-top: 3rem; justify-content: center;">
+            <button class="btn btn-primary" data-en="Start Custom Order" data-es="Iniciar Pedido Personalizado">Iniciar Pedido Personalizado</button>
+            <button class="btn btn-secondary" data-en="Contact Us" data-es="Contáctanos" onclick="scrollToSection('contacto')">Contáctanos</button>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about">
+        <h2 data-en="About Bella's Group" data-es="Nosotros - Bella's Group">Nosotros - Bella's Group</h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3 data-en="Our Story" data-es="Nuestra Historia">Nuestra Historia</h3>
+                <p data-en="Bella's Group is a creative brand focused on custom apparel, gifts, and unique personalized designs. Our goal is to transform ideas into beautiful products that people love to wear, share, and enjoy." data-es="Bella's Group es una marca creativa enfocada en ropa personalizada, regalos y diseños únicos. Nuestro objetivo es transformar ideas en productos que las personas disfruten usar y compartir.">Bella's Group es una marca creativa enfocada en ropa personalizada, regalos y diseños únicos. Nuestro objetivo es transformar ideas en productos que las personas disfruten usar y compartir.</p>
+                
+                <div class="mission-vision">
+                    <h4 data-en="Our Mission" data-es="Nuestra Misión">Nuestra Misión</h4>
+                    <p data-en="To create personalized products that inspire creativity and individuality." data-es="Crear productos personalizados que inspiren creatividad y estilo propio.">Crear productos personalizados que inspiren creatividad y estilo propio.</p>
+                </div>
+
+                <div class="mission-vision" style="margin-top: 1.5rem;">
+                    <h4 data-en="Our Vision" data-es="Nuestra Visión">Nuestra Visión</h4>
+                    <p data-en="To grow Bella's Group into a recognized creative brand for custom designs and apparel." data-es="Convertir Bella's Group en una marca reconocida de diseños personalizados.">Convertir Bella's Group en una marca reconocida de diseños personalizados.</p>
+                </div>
+            </div>
+            <div class="about-image" style="background: linear-gradient(135deg, #f5ede1, #e8dcc9); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto">
+        <h2 data-en="Contact Bella's Group" data-es="Contacta a Bella's Group">Contacta a Bella's Group</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem;" data-en="For questions, collaborations, or custom orders, contact us through any of our platforms." data-es="Para preguntas, colaboraciones o pedidos personalizados contáctanos.">Para preguntas, colaboraciones o pedidos personalizados contáctanos.</p>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3 data-en="Contact Info" data-es="Información de Contacto">Información de Contacto</h3>
+                <div class="contact-item">
+                    <strong data-en="Instagram" data-es="Instagram">Instagram</strong>
+                    <a href="https://instagram.com/bellasgroup" target="_blank">@bellasgroup</a>
+                </div>
+                <div class="contact-item">
+                    <strong data-en="TikTok" data-es="TikTok">TikTok</strong>
+                    <a href="https://tiktok.com/@bellasgroup" target="_blank">@bellasgroup</a>
+                </div>
+                <div class="contact-item">
+                    <strong data-en="Telegram" data-es="Telegram">Telegram</strong>
+                    <a href="https://t.me/bellasgroupshop" target="_blank">@bellasgroupshop</a>
+                </div>
+                <div class="contact-item">
+                    <strong data-en="Email" data-es="Email">Email</strong>
+                    <a href="mailto:hello@bellasgroup.com">hello@bellasgroup.com</a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <input type="text" placeholder="Tu Nombre / Your Name" data-en="Your Name" data-es="Tu Nombre" required>
+                    <input type="email" placeholder="Tu Email / Your Email" data-en="Your Email" data-es="Tu Email" required>
+                    <input type="text" placeholder="Asunto / Subject" data-en="Subject" data-es="Asunto" required>
+                    <textarea placeholder="Tu Mensaje / Your Message" data-en="Your Message" data-es="Tu Mensaje" required></textarea>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="Send Message" data-es="Enviar Mensaje">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">Bella's <span style="color: var(--accent);">Group</span></div>
+            <div class="footer-tagline" data-en="Custom Apparel & Creative Designs" data-es="Ropa Personalizada & Diseños Creativos">Ropa Personalizada & Diseños Creativos</div>
+            
+            <div class="footer-links">
+                <a href="https://instagram.com/bellasgroup" target="_blank">Instagram</a>
+                <a href="https://tiktok.com/@bellasgroup" target="_blank">TikTok</a>
+                <a href="https://t.me/bellasgroupshop" target="_blank">Telegram</a>
+                <a onclick="scrollToSection('contacto')" style="cursor: pointer;">Contacto / Contact</a>
+            </div>
+
+            <div class="footer-copyright" data-en="© Bella's Group 2026" data-es="© Bella's Group 2026">© Bella's Group 2026</div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLanguage = 'es';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-es]');
+            elements.forEach(el => {
+                const text = currentLanguage === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+
+            // Update button text
+            const buttons = document.querySelectorAll('button[data-en][data-es]');
+            buttons.forEach(btn => {
+                const text = currentLanguage === 'en' ? btn.getAttribute('data-en') : btn.getAttribute('data-es');
+                btn.textContent = text;
+            });
+
+            // Update anchor texts
+            const links = document.querySelectorAll('a[data-en][data-es]');
+            links.forEach(link => {
+                const text = currentLanguage === 'en' ? link.getAttribute('data-en') : link.getAttribute('data-es');
+                link.textContent = text;
+            });
+        }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert(currentLanguage === 'en' ? 'Thank you for your message!' : '¡Gracias por tu mensaje!');
+            event.target.reset();
+        }
+
+        // Initialize language
+        updateLanguage();
+    </script>
+</body>
+</html>
